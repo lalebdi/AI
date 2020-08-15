@@ -9,7 +9,7 @@ const alanKey = process.env.REACT_APP_ALAN;
 
 export default function App() {
     const [newsArticles, setNewsArticles] = useState([]);
-    const [activeArticle, setActiveArticle] = useState(0);
+    const [activeArticle, setActiveArticle] = useState(-1);
     const classes = useStyles();
 // useEffect takes 2 params. one is a callback and the second is a dependency array. if the array is empty it will run once when the it mounts.
     useEffect(() => {
@@ -19,6 +19,7 @@ export default function App() {
                 if(command === 'newHeadlines'){
                     // console.log(articles)
                     setNewsArticles(articles);
+                    setActiveArticle(-1); // to reset every time we do the news
                 } else if(command === 'highlight'){
                         setActiveArticle((prevActiveArticle) => prevActiveArticle +1);
                         // This is recommended by react. Once you change the state to the previous state you call it as a callback and increment it
