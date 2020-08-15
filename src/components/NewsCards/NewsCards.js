@@ -4,6 +4,7 @@ import { Grid, Grow, Typography } from '@material-ui/core';
 import useStyles from './Styles';
 //  imported useStyles because the makeStyles creates a hook that we can use here.
 
+// I'm passing article in the NewsCard as prop to the NewsCard component 
 
 const NewsCards = ({articles}) => {
     const classes = useStyles();
