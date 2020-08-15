@@ -9,6 +9,7 @@ const alanKey = process.env.REACT_APP_ALAN;
 
 export default function App() {
     const [newsArticles, setNewsArticles] = useState([]);
+    const [activeArticle, setActiveArticle] = useState(0);
     const classes = useStyles();
 // useEffect takes 2 params. one is a callback and the second is a dependency array. if the array is empty it will run once when the it mounts.
     useEffect(() => {
@@ -18,7 +19,12 @@ export default function App() {
                 if(command === 'newHeadlines'){
                     // console.log(articles)
                     setNewsArticles(articles);
+                } else if(command === 'highlight'){
+                        setActiveArticle((prevActiveArticle) => prevActiveArticle +1);
+                        // This is recommended by react. Once you change the state to the previous state you call it as a callback and increment it
                 }
+
+                
             }
         })
     }, [])
@@ -28,7 +34,7 @@ export default function App() {
             <div className={classes.logoContainer}>
                 <img src="https://alan.app/voice/images/previews/preview.jpg" className={classes.alanLogo} alt="logo" />
             </div>
-            <NewsCards articles={newsArticles} />
+            <NewsCards articles={newsArticles} activeArticle={activeArticle} />
         </div>
     )
 }
