@@ -15,7 +15,7 @@ const NewsCard = ({article: { description, publishedAt, source, title, url, urlT
                         <Typography variant="body2" color="textSecondary" component="h2">{(new Date(publishedAt)).toDateString()}</Typography>
                         <Typography variant="body2" color="textSecondary" component="h2">{source.name}</Typography>
                     </div>
-                    <Typography className={classes.title} gutterBottm variant="h5">{title}</Typography>
+                    <Typography className={classes.title} gutterBottom variant="h5">{title}</Typography>
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p" >{description}</Typography>
                     </CardContent>
