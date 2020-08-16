@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import NewsCards from './components/NewsCards/NewsCards';
-import useStyles from './styles'
+import useStyles from './styles';
+import wordsToNumbers from 'words-to-numbers'; // for the fuzzy search
 require('dotenv').config()
 
 const alanKey = process.env.REACT_APP_ALAN;
@@ -15,7 +16,7 @@ export default function App() {
     useEffect(() => {
         alanBtn({
             key: alanKey,
-            onCommand: ({command, articles}) => {
+            onCommand: ({command, articles, number}) => {
                 if(command === 'newHeadlines'){
                     // console.log(articles)
                     setNewsArticles(articles);
@@ -23,8 +24,22 @@ export default function App() {
                 } else if(command === 'highlight'){
                         setActiveArticle((prevActiveArticle) => prevActiveArticle +1);
                         // This is recommended by react. Once you change the state to the previous state you call it as a callback and increment it
-                }
+                } else if(command === 'open'){
+                    // console.log(number);
+                    // sometimes when the number is complex it makes it a string and I want it as a number
+                    const parsedNymber = number.length > 2 ? wordsToNumbers(number,{}): number;
+                    const article = articles[parsedNymber - 1];
+                    // one last check is if the number is too large the voice will say try again.
 
+                    if(parsedNymber > 20){
+                        alanBtn().playText('please try that again.')
+                    } else if(article){
+                        
+                        window.open(article.url, '_blank');
+                        alanBtn().playText('Opening...')
+                    }
+                }
+                // in future I will consider using a switch statement above
                 
             }
         })
