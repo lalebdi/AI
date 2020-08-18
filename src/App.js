@@ -3,6 +3,7 @@ import alanBtn from '@alan-ai/alan-sdk-web';
 import NewsCards from './components/NewsCards/NewsCards';
 import useStyles from './styles';
 import wordsToNumbers from 'words-to-numbers'; // for the fuzzy search
+import header from './assets/header2.jpg';
 require('dotenv').config()
 
 const alanKey = process.env.REACT_APP_ALAN;
@@ -48,7 +49,7 @@ export default function App() {
     return (
         <div>
             <div className={classes.logoContainer}>
-                <img src="https://alan.app/voice/images/previews/preview.jpg" className={classes.alanLogo} alt="logo" />
+                <img src={header} className={classes.alanLogo} alt="logo" />
             </div>
             <NewsCards articles={newsArticles} activeArticle={activeArticle} />
         </div>
