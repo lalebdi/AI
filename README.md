@@ -77,10 +77,10 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://alan.app/](https://alan.app/)
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/lalebdi/AI
 ```
 3. Install NPM packages
 ```sh
