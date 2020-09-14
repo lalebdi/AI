@@ -27,7 +27,6 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
@@ -100,12 +99,6 @@ This app has been deployed. once you go to the site click on the blue mic button
 
 _Please refer to the [Live Site](https://5f55304b080cf0e07c62f16a--sad-meninsky-ae278a.netlify.app/)_
 
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 
 
